@@ -2,39 +2,24 @@ from tkinter import *
 
 def open_home(name):
     def open_todo():
-        todo_window = Toplevel(root)
-        todo_window.title("To-Do List")
-        todo_window.geometry("400x300")
-        todo_window.configure(bg="#f5f5f5")
-        Label(todo_window, text="📝 To-Do List Module (Coming Soon)", font=("Helvetica", 14), bg="#f5f5f5").pack(pady=50)
+        from modules import todo
+        todo.open_todo()
 
     def open_events():
-        events_window = Toplevel(root)
-        events_window.title("Events & Reminders")
-        events_window.geometry("400x300")
-        events_window.configure(bg="#f5f5f5")
-        Label(events_window, text="📅 Events & Reminders Module (Coming Soon)", font=("Helvetica", 14), bg="#f5f5f5").pack(pady=50)
+        from modules import event
+        event.open_events()
 
     def open_schedule():
-        schedule_window = Toplevel(root)
-        schedule_window.title("Class Schedule")
-        schedule_window.geometry("400x300")
-        schedule_window.configure(bg="#f5f5f5")
-        Label(schedule_window, text="📚 Schedule Module (Coming Soon)", font=("Helvetica", 14), bg="#f5f5f5").pack(pady=50)
+        from modules import schedule
+        schedule.open_schedule()
 
     def open_gpa():
-        gpa_window = Toplevel(root)
-        gpa_window.title("GPA Calculator")
-        gpa_window.geometry("400x300")
-        gpa_window.configure(bg="#f5f5f5")
-        Label(gpa_window, text="📊 GPA Calculator Module (Coming Soon)", font=("Helvetica", 14), bg="#f5f5f5").pack(pady=50)
+        from modules import GPA
+        GPA.open_gpa()
 
     def open_account():
-        account_window = Toplevel(root)
-        account_window.title("Account")
-        account_window.geometry("400x300")
-        account_window.configure(bg="#f5f5f5")
-        Label(account_window, text="👤 Account Module (Coming Soon)", font=("Helvetica", 14), bg="#f5f5f5").pack(pady=50)
+        from modules import account
+        account.open_account()
 
     root = Tk()
     root.title("Interactive Student Dashboard - Home")
