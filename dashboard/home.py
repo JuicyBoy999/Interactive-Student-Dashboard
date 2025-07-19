@@ -18,8 +18,22 @@ def open_home(name):
         GPA.open_gpa()
 
     def open_account():
+        import sqlite3
         from modules import account
-        account.open_account()
+
+        conn = sqlite3.connect('auth/user_data.db')
+        c = conn.cursor()
+        c.execute("SELECT student_id FROM users WHERE full_name = ?", (name,))
+        result = c.fetchone()
+        conn.close()
+
+        if result:
+            root.destroy()
+            student_id = result[0]
+            account.open_account(student_id)
+        else:
+            from tkinter import messagebox
+            messagebox.showerror("Error", "Unable to retrieve your account.")
 
     root = Tk()
     root.title("Interactive Student Dashboard - Home")
