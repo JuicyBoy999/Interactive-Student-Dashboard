@@ -13,6 +13,13 @@ def greeting(name):
         return f"Good night, {name}!\nTake some rest and sleep well!"
 
 def show_greeting(name):
+
+    def go_to_home():
+        root.destroy()
+        from dashboard.home import open_home
+        open_home(name)
+
+    global root
     root = Tk()
     root.title("Welcome")
     root.geometry("600x300")
@@ -29,7 +36,7 @@ def show_greeting(name):
     message_label = Label(frame, text=message, font=("Helvetica", 14), bg="white", fg="#555", justify="center")
     message_label.pack()
 
-    continue_btn = Button(frame, text="Continue", font=("Helvetica", 12, "bold"), bg="#4CAF50", fg="white", padx=20, pady=5, command=root.destroy)
+    continue_btn = Button(frame, text="Continue", font=("Helvetica", 12, "bold"), bg="#4CAF50", fg="white", padx=20, pady=5, command = go_to_home)
     continue_btn.pack(pady=20)
 
     root.mainloop()
